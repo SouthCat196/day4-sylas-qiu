@@ -10,7 +10,13 @@ public class Student extends Person implements ClassLeaderChangeObserver {
 
     @Override
     public String introduce() {
-        return super.introduce() + " I am a student. I am in class " + klass + ".";
+        return super.introduce()
+                .concat(" I am a student.")
+                .concat(getKlassInfo());
+    }
+
+    private String getKlassInfo() {
+        return klass != null ? " I am in class " + klass + "." : "";
     }
 
     public boolean isIn(Klass klass) {

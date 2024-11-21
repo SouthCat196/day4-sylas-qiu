@@ -7,6 +7,9 @@ import java.util.stream.Collectors;
 public class Teacher extends Person implements ClassLeaderChangeObserver {
 
     public static final String DELIMITER = ", ";
+    public static final String TEACHER_INFO = " I am a teacher.";
+    public static final String CLASS_INFO_PREFIX = " I teach Class ";
+    public static final String DOT = ".";
     private List<Klass> klasses;
 
     public Teacher(Integer id, String name, Integer age) {
@@ -17,14 +20,16 @@ public class Teacher extends Person implements ClassLeaderChangeObserver {
     @Override
     public String introduce() {
         return super.introduce()
-                .concat(" I am a teacher.")
-                .concat(String.format(" I teach Class %s.", getAllKlasses()));
+                .concat(TEACHER_INFO)
+                .concat(getKlassesInfo());
     }
 
-    private String getAllKlasses() {
-        return klasses.stream()
-                .map(klass -> klass.toString())
-                .collect(Collectors.joining(DELIMITER));
+    private String getKlassesInfo() {
+        return klasses == null || klasses.isEmpty()
+                ? ""
+                : klasses.stream()
+                .map(Klass::toString)
+                .collect(Collectors.joining(DELIMITER, CLASS_INFO_PREFIX, DOT));
     }
 
     public boolean belongsTo(Klass klass) {
