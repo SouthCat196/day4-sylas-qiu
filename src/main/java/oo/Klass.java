@@ -1,20 +1,15 @@
 package oo;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
-public class Klass {
+public class Klass extends ClassLeaderSubject {
 
     private Integer number;
 
     private Student assignLeader;
 
-    private List<Person> klassMembers;
-
     public Klass(Integer number) {
         this.number = number;
-        this.klassMembers = new ArrayList<>();
     }
 
     @Override
@@ -40,17 +35,12 @@ public class Klass {
     }
 
     public void assignLeader(Student student) {
-        if(student.isIn(this)){
+        if (student.isIn(this)) {
             this.assignLeader = student;
-            klassMembers.stream()
-                    .forEach(member -> member.noticeKlassLeaderUpdate(this));
-        }else {
+            noticeAllObserver(this);
+        } else {
             System.out.print("It is not one of us.");
         }
-    }
-
-    public void attach(Person member) {
-        klassMembers.add(member);
     }
 
     public Student getAssignLeader() {

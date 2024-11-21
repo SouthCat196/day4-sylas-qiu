@@ -17,10 +17,6 @@ public class Person {
         return String.format("My name is %s. I am %s years old.", name, age);
     }
 
-    public void noticeKlassLeaderUpdate(Klass klass){
-        System.out.println(String.format("I am %s, Class %s. I know %s become Leader", name, klass, klass.getAssignLeader()));
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

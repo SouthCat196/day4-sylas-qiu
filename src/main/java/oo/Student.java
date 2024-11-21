@@ -1,6 +1,6 @@
 package oo;
 
-public class Student extends Person {
+public class Student extends Person implements ClassLeaderChangeObserver {
 
     private Klass klass;
 

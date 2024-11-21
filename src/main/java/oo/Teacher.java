@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Teacher extends Person {
+public class Teacher extends Person implements ClassLeaderChangeObserver {
 
     public static final String DELIMITER = ", ";
     private List<Klass> klasses;
