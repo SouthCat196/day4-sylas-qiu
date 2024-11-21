@@ -1,5 +1,7 @@
 package oo;
 
+import oo.subject.ClassLeaderSubject;
+
 import java.util.Objects;
 
 public class Klass extends ClassLeaderSubject {

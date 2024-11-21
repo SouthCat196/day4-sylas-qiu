@@ -1,10 +1,12 @@
 package oo;
 
+import oo.observer.ClassLeaderObserver;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Teacher extends Person implements ClassLeaderChangeObserver {
+public class Teacher extends Person implements ClassLeaderObserver {
 
     public static final String DELIMITER = ", ";
     public static final String TEACHER_INFO = " I am a teacher.";

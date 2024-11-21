@@ -1,6 +1,8 @@
 package oo;
 
-public class Student extends Person implements ClassLeaderChangeObserver {
+import oo.observer.ClassLeaderObserver;
+
+public class Student extends Person implements ClassLeaderObserver {
 
     private Klass klass;
 
