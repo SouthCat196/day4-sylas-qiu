@@ -2,9 +2,12 @@ package oo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Teacher extends Person {
 
+    public static final String DELIMITER = ", ";
     private List<Klass> klasses;
 
     public Teacher(Integer id, String name, Integer age) {
@@ -14,7 +17,15 @@ public class Teacher extends Person {
 
     @Override
     public String introduce() {
-        return super.introduce() + " I am a teacher.";
+        return super.introduce()
+                .concat(" I am a teacher.")
+                .concat(String.format(" I teach Class %s.", getAllKlasses()));
+    }
+
+    private String getAllKlasses() {
+        return klasses.stream()
+                .map(klass -> klass.toString())
+                .collect(Collectors.joining(DELIMITER));
     }
 
     public boolean belongsTo(Klass klass) {
