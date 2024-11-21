@@ -10,10 +10,10 @@ public class Student extends Person {
 
     @Override
     public String introduce() {
-        return super.introduce() + " I am a student.";
+        return super.introduce() + " I am a student. I am in class " + klass + ".";
     }
 
-    public boolean isIn(Klass klass){
+    public boolean isIn(Klass klass) {
         return this.klass == klass;
     }
 
