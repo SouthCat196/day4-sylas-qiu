@@ -1,8 +1,9 @@
 package oo;
 
 import oo.observer.ClassLeaderObserver;
+import oo.observer.SchoolObserver;
 
-public class Student extends Person implements ClassLeaderObserver {
+public class Student extends Person implements ClassLeaderObserver, SchoolObserver {
 
     private Klass klass;
 
@@ -32,5 +33,10 @@ public class Student extends Person implements ClassLeaderObserver {
     @Override
     public void noticeKlassLeaderUpdate(Klass klass) {
         System.out.println(String.format("I am %s, student of Class %s. I know %s become Leader.", getName(), klass, klass.getAssignLeader().getName()));
+    }
+
+    @Override
+    public void noticeSchoolStart() {
+        System.out.println(introduce());
     }
 }

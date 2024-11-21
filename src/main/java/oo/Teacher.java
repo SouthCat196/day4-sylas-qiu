@@ -1,12 +1,13 @@
 package oo;
 
 import oo.observer.ClassLeaderObserver;
+import oo.observer.SchoolObserver;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Teacher extends Person implements ClassLeaderObserver {
+public class Teacher extends Person implements ClassLeaderObserver, SchoolObserver {
 
     public static final String DELIMITER = ", ";
     public static final String TEACHER_INFO = " I am a teacher.";
@@ -51,5 +52,10 @@ public class Teacher extends Person implements ClassLeaderObserver {
     @Override
     public void noticeKlassLeaderUpdate(Klass klass) {
         System.out.println(String.format("I am %s, teacher of Class %s. I know %s become Leader.", getName(), klass, klass.getAssignLeader().getName()));
+    }
+
+    @Override
+    public void noticeSchoolStart() {
+        System.out.println(introduce());
     }
 }
