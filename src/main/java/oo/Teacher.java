@@ -2,7 +2,6 @@ package oo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Teacher extends Person {
@@ -40,5 +39,10 @@ public class Teacher extends Person {
     public boolean isTeaching(Student student) {
         return klasses.stream()
                 .anyMatch(klass -> student.isIn(klass));
+    }
+
+    @Override
+    public void noticeKlassLeaderUpdate(Klass klass) {
+        System.out.println(String.format("I am %s, teacher of Class %s. I know %s become Leader.", getName(), klass, klass.getAssignLeader().getName()));
     }
 }

@@ -20,4 +20,9 @@ public class Student extends Person {
     public void join(Klass klass) {
         this.klass = klass;
     }
+
+    @Override
+    public void noticeKlassLeaderUpdate(Klass klass) {
+        System.out.println(String.format("I am %s, student of Class %s. I know %s become Leader.", getName(), klass, klass.getAssignLeader().getName()));
+    }
 }
