@@ -36,4 +36,9 @@ public class Teacher extends Person {
     public void assignTo(Klass klass) {
         this.klasses.add(klass);
     }
+
+    public boolean isTeaching(Student student) {
+        return klasses.stream()
+                .anyMatch(klass -> student.isIn(klass));
+    }
 }
