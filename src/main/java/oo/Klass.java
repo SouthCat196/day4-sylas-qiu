@@ -6,6 +6,8 @@ public class Klass {
 
     private Integer number;
 
+    private Student assignLeader;
+
     public Klass(Integer number) {
         this.number = number;
     }
@@ -26,5 +28,17 @@ public class Klass {
     @Override
     public String toString() {
         return String.valueOf(number);
+    }
+
+    public boolean isLeader(Student student) {
+        return assignLeader == student;
+    }
+
+    public void assignLeader(Student student) {
+        if(student.isIn(this)){
+            this.assignLeader = student;
+        }else {
+            System.out.print("It is not one of us.");
+        }
     }
 }
