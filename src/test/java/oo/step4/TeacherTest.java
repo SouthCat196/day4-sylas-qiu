@@ -18,17 +18,17 @@ public class TeacherTest {
 
         assertThat(belongsTo).isFalse();
     }
-//
-//    @Test
-//    public void should_return_true_when_belongsTo_given_teacher_teaches_in_the_class() {
-//        Teacher jerry = new Teacher(1, "Jerry", 21);
-//        Klass klass = new Klass(1);
-//        jerry.assignTo(klass);
-//
-//        boolean belongsTo = jerry.belongsTo(klass);
-//
-//        assertThat(belongsTo).isTrue();
-//    }
+
+    @Test
+    public void should_return_true_when_belongsTo_given_teacher_teaches_in_the_class() {
+        Teacher jerry = new Teacher(1, "Jerry", 21);
+        Klass klass = new Klass(1);
+        jerry.assignTo(klass);
+
+        boolean belongsTo = jerry.belongsTo(klass);
+
+        assertThat(belongsTo).isTrue();
+    }
 //
 //    @Test
 //    public void should_all_return_true_when_belongsTo_given_teacher_teaches_multiple_classes() {

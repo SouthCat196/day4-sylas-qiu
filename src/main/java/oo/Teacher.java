@@ -21,4 +21,8 @@ public class Teacher extends Person {
         return klasses.stream()
                 .anyMatch(teachingKlass -> teachingKlass == klass);
     }
+
+    public void assignTo(Klass klass) {
+        this.klasses.add(klass);
+    }
 }
